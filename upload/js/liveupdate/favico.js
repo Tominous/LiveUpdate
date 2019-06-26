@@ -286,7 +286,7 @@
 			_context.fillStyle = 'rgba(' + _opt.bgColor.r + ',' + _opt.bgColor.g + ',' + _opt.bgColor.b + ',' + opt.o + ')';
 			_context.fillRect(opt.x, opt.y, opt.w, opt.h);
 			_context.fillStyle = 'rgba(' + _opt.textColor.r + ',' + _opt.textColor.g + ',' + _opt.textColor.b + ',' + opt.o + ')';
-			//_context.fillText((more) ? '9+' : opt.n, Math.floor(opt.x + opt.w / 2), Math.floor(opt.y + opt.h - opt.h * 0.15));
+			_context.fillText((more) ? '9+' : opt.n, Math.floor(opt.x + opt.w / 2), Math.floor(opt.y + opt.h - opt.h * 0.15));
 			if ((typeof opt.n) === 'number' && opt.n > 999) {
 				_context.fillText(((opt.n > 9999) ? 9 : Math.floor(opt.n / 1000)) + 'k+', Math.floor(opt.x + opt.w / 2), Math.floor(opt.y + opt.h - opt.h * 0.2));
 			} else {
@@ -383,9 +383,9 @@
 						_stop = false;
 						return;
 					}
-					//var w = videoElement.width;
-					//var h = videoElement.height;
-					//var ratio = (w / _w < h / _h) ? (w / _w) : (h / _h);
+					var w = videoElement.width;
+					var h = videoElement.height;
+					var ratio = (w / _w < h / _h) ? (w / _w) : (h / _h);
 					videoElement.addEventListener('play', function () {
 						drawVideo(this);
 					}, false);
@@ -515,10 +515,10 @@
 				//if is attached to fav icon
 				if (_browser.ff || _browser.opera) {
 					//for FF we need to "recreate" element, atach to dom and remove old <link>
-					//var originalType = _orig.getAttribute('rel');
+					var originalType = _orig.getAttribute('rel');
 					var old = _orig;
 					_orig = _doc.createElement('link');
-					//_orig.setAttribute('rel', originalType);
+					_orig.setAttribute('rel', originalType);
 					if (_browser.opera) {
 						_orig.setAttribute('rel', 'icon');
 					}
